@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: yolo5-deployment
+  namespace: detect-me
 spec:
   selector:
     matchLabels:
@@ -31,6 +32,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: yolo5-service
+  namespace: detect-me
 spec:
   selector:
     app: yolo5
@@ -43,6 +45,7 @@ apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: yolo5-hpa
+  namespace: detect-me
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
